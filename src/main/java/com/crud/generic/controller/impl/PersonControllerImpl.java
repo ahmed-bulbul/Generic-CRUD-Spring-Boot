@@ -19,19 +19,21 @@ public class PersonControllerImpl extends ControllerGenericImpl<Person> implemen
     }
 
     @Override
-    @PostMapping("/create")
     public ResponseEntity<Object> save(Person entity) {
         return super.save(entity);
     }
 
     @Override
-    @GetMapping("/fetchAll")
     public ResponseEntity<Person> findAll() {
         return super.findAll();
     }
 
     @Override
-    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Person> findById(Long id) {
+        return super.findById(id);
+    }
+
+    @Override
     public ResponseEntity<String> delete(Long id) {
         return super.delete(id);
     }

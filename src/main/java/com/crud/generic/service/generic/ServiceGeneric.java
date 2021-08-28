@@ -9,5 +9,5 @@ public interface ServiceGeneric<T extends BaseEntity>  {
 	List<T> findAll() throws Exception;
 	T save(T entity) throws Exception;
 	void delete(Long id) throws Exception;
-	
+	Object findById(Long id) throws Exception;
 }

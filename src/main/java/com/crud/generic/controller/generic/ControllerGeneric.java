@@ -11,6 +11,8 @@ public interface ControllerGeneric<T extends BaseEntity> {
 	ResponseEntity<Object> save(@RequestBody T entity);
 	
 	ResponseEntity<T> findAll();
+
+	ResponseEntity<T> findById(@PathVariable Long id);
 	
 	ResponseEntity<String> delete(@PathVariable Long id);
 

@@ -1,4 +1,4 @@
-package com.crud.generic.service.impl;
+package com.crud.generic.serviceImpl;
 
 import org.springframework.stereotype.Service;
 

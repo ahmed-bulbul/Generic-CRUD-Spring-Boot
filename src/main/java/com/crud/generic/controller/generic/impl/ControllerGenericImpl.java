@@ -21,7 +21,7 @@ public class ControllerGenericImpl<T extends BaseEntity> implements ControllerGe
 	private ServiceGeneric<T> genericService;
 
 	@Override
-	@PostMapping
+	@PostMapping("/create")
 	public ResponseEntity<Object> save(T entity) {
 		try {
 			return new ResponseEntity(genericService.save(entity),HttpStatus.OK);
@@ -32,7 +32,7 @@ public class ControllerGenericImpl<T extends BaseEntity> implements ControllerGe
 	}
 	
 	@Override
-	@GetMapping
+	@GetMapping("/fetchAll")
 	public ResponseEntity<T> findAll() {
 		try {
 			return new ResponseEntity(genericService.findAll(), HttpStatus.OK);
@@ -41,7 +41,19 @@ public class ControllerGenericImpl<T extends BaseEntity> implements ControllerGe
 			return new ResponseEntity("Erro ao buscar todos!", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+
+	@Override
+	@GetMapping("/get/{id}")
+	public ResponseEntity<T> findById(Long id) {
+		try {
+			return new ResponseEntity(genericService.findById(id),HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity("",HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
+
 	@Override
 	@DeleteMapping("/{id}")	
 	public ResponseEntity<String> delete(@PathVariable("id") Long id) {

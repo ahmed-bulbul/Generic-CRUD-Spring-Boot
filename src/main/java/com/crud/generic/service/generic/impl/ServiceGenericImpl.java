@@ -40,4 +40,13 @@ public class ServiceGenericImpl<T extends BaseEntity> implements ServiceGeneric<
 		}
 	}
 
+	@Override
+	public Object findById(Long id) throws Exception {
+		try {
+			return genericRepository.findById(id);
+		}catch (Exception e){
+			throw e;
+		}
+	}
+
 }

@@ -12,8 +12,7 @@ public class Person extends BaseEntity{
 	
 	@Column(name = "email", nullable = false, length = 200)
 	private String email;
-	
-	
+
 
 	public Person() {
 		super();		
